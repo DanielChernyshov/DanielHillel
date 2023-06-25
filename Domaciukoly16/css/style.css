@@ -1,0 +1,94 @@
+nav > ul > li {
+ display: inline;
+ background-color: #20B2AA;
+ padding: 15px 15px 15px 15px;
+}
+
+nav > ul > li >a {
+    text-decoration: None;
+    color: black;
+}
+
+nav {
+    text-align: center;
+}
+
+nav > ul {
+    padding-left: 0px
+}
+
+h1 {
+    font-style: oblique;
+    text-align: center;
+    font-size:300%;
+}
+
+body {
+    background-color: #778899;
+}
+
+h2 {
+    text-align: center;
+    font-style: normal;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+h3 {
+    font-style: normal;
+    text-align: center;
+    font-size: 200%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+
+table, th, td {
+  border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#remember {
+    font-size: 120%;
+}
+
+#thecove {
+    float: left;
+    width: 40%;
+    padding-right: 10px;
+}
+
+
+
+tr {
+    background-color:#48D1CC;
+    color:black;
+}
+th
+{
+  background-color:#20B2AA;
+  color:black;
+}
+
+.backbutton {
+    display: block;
+    background-color: #20B2AA;
+    padding: 15px 15px 15px 15px;
+    text-align: center;
+    text-decoration: None;
+    color:black;
+    margin:auto;
+    width: 70px;
+}
