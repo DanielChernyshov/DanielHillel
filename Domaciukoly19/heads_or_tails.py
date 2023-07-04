@@ -3,7 +3,7 @@ import random
 coin = ["Heads", "Tails"]
 cointoss = random.choice(coin)
 
-selection = input("Heads or Tails: ").lower()
+selection = input("Heads or Tails: ")
 
 if selection == cointoss:
     print("You win! The coin landed on " + cointoss)
