@@ -1,8 +1,10 @@
 import time
+import random
+from operator import attrgetter
+
 
 class Car:
-    def __init__(self, economy, color, model, mileage=0, fuel=100, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, economy, color, model, mileage=0, fuel=100):
         self._mileage = mileage
         self._fuel = fuel
         self._economy = economy
@@ -16,7 +18,7 @@ class Car:
                 break
             elif self._fuel < self._economy:
                 print("Not enough fuel!")
-                self._fuel=0
+                self._fuel = 0
                 break
             else:
                 self._fuel -= self._economy
@@ -26,29 +28,28 @@ class Car:
         self._mileage += distance
 
     def distance_left(self):
-        return self._fuel / self._economy
+        return self._fuel / self._economy * 100
 
     def fuel_up(self):
-            self._fuel += 20
+        self._fuel += 20
 
-import random
-models = ['Toyota', 'Honda', 'Ford', 'Chevrolet','Nissan']
-colors = ['blue','green','yellow','black','red','green']
+    def get_max_fuel(self):
+        return self._max_fuel
+
+
+models = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan']
+colors = ['blue', 'green', 'yellow', 'black', 'red', 'green']
 
 cars = []
 
-for i in range(10):
-    cars.append(Car(random.randrange(100), random.choice(colors), random.choice(models)))
+for _ in range(10):
+    cars.append(Car(random.randrange(4, 20), random.choice(colors), random.choice(models)))
 
 for item in cars:
     item.drive(200)
     item.fuel_up()
     item.drive(100)
 
-
-from operator import attrgetter
-
-
 max_fuel = max(cars, key=attrgetter('_fuel'))
-print(f"The car with the most fuel has {max_fuel._fuel} fuel, the economy is {max_fuel._economy}, "
-      f"the color of the car is {max_fuel._color}, the model of the car is {max_fuel._model}")
+
+print(f"Your car has: {Car().get_max_fuel()}")
