@@ -1,6 +1,5 @@
 import time
 import random
-from operator import attrgetter
 
 
 class Car:
@@ -33,27 +32,26 @@ class Car:
     def fuel_up(self):
         self._fuel += 20
 
-    def get_max_fuel(self):
-        return self._max_fuel_car
-
     @property
     def fuel(self):
         return self._fuel
 
 
-models = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan']
-colors = ['blue', 'green', 'yellow', 'black', 'red', 'green']
+models = ["Toyota", "Honda", "Ford", "Chevrolet", "Nissan"]
+colors = ["blue", "green", "yellow", "black", "red", "green"]
 
 cars = []
 
 for _ in range(10):
-    cars.append(Car(random.randrange(4, 20), random.choice(colors), random.choice(models)))
+    cars.append(
+        Car(random.randrange(4, 20), random.choice(colors), random.choice(models))
+    )
 
 for item in cars:
     item.drive(200)
     item.fuel_up()
     item.drive(100)
 
-max_fuel_car = max(cars, key=attrgetter('fuel'))
+max_fuel_car = max(cars, key=lambda car: car.fuel)
 
-print(f"Your car has: {Car.get_max_fuel}")
+print(f"Your car has: {vars(max_fuel_car)}")
