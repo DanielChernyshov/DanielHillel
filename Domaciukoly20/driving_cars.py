@@ -34,7 +34,11 @@ class Car:
         self._fuel += 20
 
     def get_max_fuel(self):
-        return self._max_fuel
+        return self._max_fuel_car
+
+    @property
+    def fuel(self):
+        return self._fuel
 
 
 models = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan']
@@ -50,6 +54,6 @@ for item in cars:
     item.fuel_up()
     item.drive(100)
 
-max_fuel = max(cars, key=attrgetter('_fuel'))
+max_fuel_car = max(cars, key=attrgetter('fuel'))
 
-print(f"Your car has: {Car().get_max_fuel()}")
+print(f"Your car has: {Car.get_max_fuel}")
