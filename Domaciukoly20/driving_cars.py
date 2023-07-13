@@ -1,5 +1,6 @@
 import time
 import random
+from operator import attrgetter
 
 
 class Car:
@@ -36,6 +37,22 @@ class Car:
     def fuel(self):
         return self._fuel
 
+    @property
+    def model(self):
+        return self._model
+
+    @property
+    def economy(self):
+        return self._economy
+
+    @property
+    def color(self):
+        return self._color
+
+    @property
+    def mileage(self):
+        return self._mileage
+
 
 models = ["Toyota", "Honda", "Ford", "Chevrolet", "Nissan"]
 colors = ["blue", "green", "yellow", "black", "red", "green"]
@@ -52,6 +69,9 @@ for item in cars:
     item.fuel_up()
     item.drive(100)
 
-max_fuel_car = max(cars, key=lambda car: car.fuel)
+max_fuel = max(cars, key=attrgetter("_fuel"))
 
-print(f"Your car has: {vars(max_fuel_car)}")
+print(
+    f"Your car has this much fuel: {max_fuel.fuel}. The economy is {max_fuel.economy}."
+    f"The model is {max_fuel.model}. The mileage is {max_fuel.mileage}. The color is {max_fuel.color}"
+)
