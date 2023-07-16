@@ -1,6 +1,5 @@
 import time
 import random
-from operator import attrgetter
 
 
 class Car:
@@ -69,7 +68,7 @@ for item in cars:
     item.fuel_up()
     item.drive(100)
 
-max_fuel = max(cars, key=attrgetter("_fuel"))
+max_fuel = max(cars, key=lambda car: car.fuel)
 
 print(
     f"Your car has this much fuel: {max_fuel.fuel}. The economy is {max_fuel.economy}."
